@@ -51,25 +51,18 @@ public class ASessionFilter extends HttpFilter implements Filter {
 	     
 	     // ,"/login/findingpasswords.do"
 	     
+	     
+  		// 로그인 페이지도 필터를 거치지 않도록 예외 처리@@#@#!
+  		// index.jsp를 포함한 특정 경로 예외 처리 ( 현 로그인 페이지 )
+ 
+// 		// 회원가입 페이지는 필터를 거치지 않도록 예외 처리
+// 	    // 회원가입 페이지 : /login/signupagreement.do(로그인 페이지 회원가입 버튼), /login/signup.do (약관 동의 클릭), /login/signupend.do (회원가입 정보 입력 후 가입 버튼 클릭),
+	     
 	     List<String> permitPath=List.of("/","/index.jsp","/login/login.do",
 	    		 "/login/signupagreement.do","/login/signup.do","/login/signupend.do",
 	    		 "/login/findingpasswords.do","/resources","/admin/main.do");
-	     		
-	     		// 로그인 페이지도 필터를 거치지 않도록 예외 처리@@#@#!
-	     		// index.jsp를 포함한 특정 경로 예외 처리 ( 현 로그인 페이지 )
-	     
-//	     if (path.equals("/") || path.equals("/index.jsp") || 
-//	    		 
-//	    		// 회원가입 페이지는 필터를 거치지 않도록 예외 처리
-//	    	    // 회원가입 페이지 : /login/signupagreement.do(로그인 페이지 회원가입 버튼), /login/signup.do (약관 동의 클릭), /login/signupend.do (회원가입 정보 입력 후 가입 버튼 클릭),
-//	    	    
-//	    		 path.equals("/login/signupagreement.do") || 
-//	    	        path.equals("/login/signup.do") || 
-//	    	        path.equals("/login/signupend.do")) {
-//	    	        chain.doFilter(request, response);
-//	    	        return;
-//	    	    }
-//	     	   	      
+	     			    
+	     	   	      
 	     
 	     // 세션 확인
 	        HttpSession session = httpRequest.getSession(false);
